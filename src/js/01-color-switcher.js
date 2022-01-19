@@ -15,14 +15,15 @@ refs.stopBtn.addEventListener('click', onStopBtnChangeBgColor);
 
 function onStartBtnChangeBgColor(e) {
     colorId = setInterval(getRandomBgColor, CHANGE_BG_COLOR_DELAY);
-    e.target.removeEventListener('click', onStartBtnChangeBgColor);
+    e.target.setAttribute('disabled', true);
 };
 
 function onStopBtnChangeBgColor() {
         
     clearInterval(colorId);
     
-    refs.startBtn.addEventListener('click', onStartBtnChangeBgColor);
+    refs.startBtn.removeAttribute('disabled');
+
 };
 
 function getRandomBgColor() {refs.body.style.backgroundColor =  getRandomHexColor()}
