@@ -55,11 +55,13 @@ refs.dataMinutes.textContent = addLeadingZero(remain.minutes);
             remain.hours === 0 &&
             remain.minutes === 0 &&
             remain.seconds === 0
-                    ) {
-    clearInterval(intervalID);
-        }       
-                      }
-        , 1000);         
+        ) {
+            // alert('TIME IS OVER!');  
+            clearInterval(intervalID);
+                         }
+                              }
+        , 1000);    
+    
 }
    },
 };
