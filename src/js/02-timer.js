@@ -56,11 +56,13 @@ refs.dataMinutes.textContent = addLeadingZero(remain.minutes);
             remain.minutes === 0 &&
             remain.seconds === 0
         ) {
-            // alert('TIME IS OVER!');  
+             
             clearInterval(intervalID);
+            setTimeout(() => { alert('TIME IS OVER!') }, 500);
+            refs.startBtn.setAttribute('disabled', true);
                          }
-                              }
-        , 1000);    
+    },
+        1000);    
     
 }
    },
