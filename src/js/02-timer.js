@@ -40,7 +40,16 @@ function onStartCountdownTimer() {
     
     const intervalID = setInterval(() => {
         currentTime = Date.now();
-let remainTime = selectedTime - currentTime;
+        let remainTime = selectedTime - currentTime;
+
+        if (remainTime <= 0) {
+            clearInterval(intervalID);
+            alert('TIME IS OVER!');
+            refs.startBtn.setAttribute('disabled', true);
+
+            return;
+        }
+
         console.log(remainTime);
                        
           const remain = convertMs(remainTime);
@@ -50,17 +59,6 @@ refs.dataDays.textContent = addLeadingZero(remain.days);
 refs.dataHours.textContent = addLeadingZero(remain.hours);
 refs.dataMinutes.textContent = addLeadingZero(remain.minutes);
         refs.dataSeconds.textContent = addLeadingZero(remain.seconds);
-        
-        if (remain.days === 0 &&
-            remain.hours === 0 &&
-            remain.minutes === 0 &&
-            remain.seconds === 0
-        ) {
-             
-            clearInterval(intervalID);
-            setTimeout(() => { alert('TIME IS OVER!') }, 500);
-            refs.startBtn.setAttribute('disabled', true);
-                         }
     },
         1000);    
     
