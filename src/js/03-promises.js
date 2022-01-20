@@ -31,12 +31,9 @@ function onCreatePromises(e) {
 
     for (let i = 1; i <= amountState; i += 1) {
         currentDelay += delayStep;
-            console.log(currentDelay);
-        console.log(i);
         
-       
-        // console.log(currentDelay);
-
+        console.log(i);
+        console.log(currentDelay);
         setTimeout(() => {
             
             createPromise(i, currentDelay)
