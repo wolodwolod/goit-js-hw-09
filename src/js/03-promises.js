@@ -22,7 +22,7 @@ function onCreatePromises(e) {
     // console.log(refs.amountInp.value);
 
     
-    let amountState = Number(refs.amountInp.value);
+    const amountState = Number(refs.amountInp.value);
     let currentDelay = Number(refs.firstDelayInp.value);
     console.log(currentDelay);
     const delayStep = Number(refs.delayStepInp.value);
