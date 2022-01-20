@@ -25,16 +25,20 @@ function onCreatePromises(e) {
     let amountState = Number(refs.amountInp.value);
     let currentDelay = Number(refs.firstDelayInp.value);
     console.log(currentDelay);
+    const delayStep = Number(refs.delayStepInp.value);
+    console.log(delayStep);
 
-    for (let i = 1; i <= amountState; i+=1, currentDelay += Number(refs.delayStepInp.value)) {
-;
+
+    for (let i = 1; i <= amountState; i += 1) {
+        currentDelay += delayStep;
+            console.log(currentDelay);
         console.log(i);
-        console.log(currentDelay);
+        
        
         // console.log(currentDelay);
 
         setTimeout(() => {
-             
+            
             createPromise(i, currentDelay)
                 .then(() => { console.log(`✅ Fulfilled promise ${i} in ${currentDelay}ms`) })
                 .catch(() => { console.log(`❌ Rejected promise ${i} in ${currentDelay}ms`) });
