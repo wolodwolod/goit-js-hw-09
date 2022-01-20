@@ -6,10 +6,10 @@ const refs = {
     amountInp: document.querySelector('input[name="amount"]'),
 };
 
-console.log(refs.delayStepInp);
-console.log(refs.firstDelayInp);
-console.log(refs.amountInp);
-console.log(refs.form);
+// console.log(refs.delayStepInp);
+// console.log(refs.firstDelayInp);
+// console.log(refs.amountInp);
+// console.log(refs.form);
 
 
 refs.form.addEventListener('submit', onCreatePromises);
@@ -17,32 +17,30 @@ refs.form.addEventListener('submit', onCreatePromises);
 function onCreatePromises(e) {
     e.preventDefault();
 
-    console.log(refs.delayStepInp.value);
-    console.log(refs.firstDelayInp.value);
-    console.log(refs.amountInp.value);
+    // console.log(refs.delayStepInp.value);
+    // console.log(refs.firstDelayInp.value);
+    // console.log(refs.amountInp.value);
 
     
     let amountState = Number(refs.amountInp.value);
     let currentDelay = Number(refs.firstDelayInp.value);
+    console.log(currentDelay);
 
-    for (let i = 1; i <= amountState; i+=1) {
-
+    for (let i = 1; i <= amountState; i+=1, currentDelay += Number(refs.delayStepInp.value)) {
+;
         console.log(i);
         console.log(currentDelay);
-        currentDelay += Number(refs.delayStepInp.value);
+       
+        // console.log(currentDelay);
 
         setTimeout(() => {
+             
             createPromise(i, currentDelay)
                 .then(() => { console.log(`✅ Fulfilled promise ${i} in ${currentDelay}ms`) })
                 .catch(() => { console.log(`❌ Rejected promise ${i} in ${currentDelay}ms`) });
         }, currentDelay)
-
-
     };
-
-    // console.log(currentDelay.value);
-}
-
+    }
 
 function createPromise(position, delay) {
     const shouldResolve = Math.random() > 0.3;
@@ -57,7 +55,6 @@ function createPromise(position, delay) {
         reject
             (`❌ Rejected promise ${position} in ${delay}ms`);
     });
-
 }
 
 
