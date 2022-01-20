@@ -34,6 +34,7 @@ function onCreatePromises(e) {
         
         console.log(i);
         console.log(currentDelay);
+        
         setTimeout(() => {
             
             createPromise(i, currentDelay)
